@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fala_ai_app/utils/constants.dart';
-import 'tts_service.dart';
+import 'package:fala_ai_app/utils/tts_service.dart';
+import 'package:fala_ai_app/models/character_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
