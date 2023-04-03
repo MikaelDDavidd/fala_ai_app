@@ -1,17 +1,11 @@
 final List<String> categories = [
-  'Esportes',
-  'Entretenimento',
-  'Notícias',
-  'Educação',
-  'Negócios',
-  'Política',
-  'Tecnologia',
+  'Anime',
+  'Filmes',
+  'Cantor',
 ];
 
-List<String> characters = [
-  'Personagem 1',
-  'Personagem 2',
-  'Personagem 3',
-  'Personagem 4',
-  'Personagem 5',
-];
+final Map<String, List<String>> characters = {
+  'Anime': ['Ichigo (Bleach)', 'Naruto (Naruto)'],
+  'Filmes': ['Harry (Harry Potter)', 'Rony (Harry Potter)'],
+  'Cantor': ['Justin Bieber', 'Ariana Grande'],
+};
