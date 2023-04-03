@@ -24,82 +24,83 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 16),
-                  const Text(
-                    "Fala Aí App",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 32),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Text(
-                          "Selecione a categoria:",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        const SizedBox(height: 8),
-                        DropdownButton<String>(
-                          value: _selectedCategory,
-                          items: categories
-                              .map((category) => DropdownMenuItem<String>(
-                                    value: category,
-                                    child: Text(category),
-                                  ))
-                              .toList(),
-                          onChanged: (category) {
-                            setState(() {
-                              _selectedCategory = category!;
-                              _selectedCharacter =
-                                  characters[_selectedCategory]![0];
-                            });
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          "Selecione o personagem:",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        const SizedBox(height: 8),
-                        DropdownButton<String>(
-                          value: _selectedCharacter,
-                          items: characters[_selectedCategory]!
-                              .map((character) => DropdownMenuItem<String>(
-                                    value: character,
-                                    child: Text(character),
-                                  ))
-                              .toList(),
-                          onChanged: (character) {
-                            setState(() {
-                              _selectedCharacter = character!;
-                            });
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextField(
-                          controller: myController,
-                          maxLength: 300,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Digite a fala',
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Gerar áudio"),
-                        )
-                      ],
-                    ),
-                  ),
-                ])));
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 16),
+          const Text(
+            "Fala Aí App",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 35),
+          const Text(
+            'Selecione a categoria',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          DropdownButton<String>(
+            value: _selectedCategory,
+            onChanged: (String? newValue) {
+              setState(() {
+                _selectedCategory = newValue!;
+                _selectedCharacter = characters[_selectedCategory]![0];
+              });
+            },
+            items: categories.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 32),
+          const Text(
+            'Selecione o personagem',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          DropdownButton<String>(
+            value: _selectedCharacter,
+            onChanged: (String? newValue) {
+              setState(() {
+                _selectedCharacter = newValue!;
+              });
+            },
+            items: characters[_selectedCategory]!
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 32),
+          TextField(
+            controller: myController,
+            maxLength: 300,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Digite a fala',
+            ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text("Gerar áudio"),
+          )
+        ],
+      ),
+    ));
   }
 }
