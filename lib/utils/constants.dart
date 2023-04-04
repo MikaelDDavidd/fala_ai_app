@@ -1,45 +1,41 @@
-import 'package:flutter/material.dart';
+import 'package:fala_ai_app/models/character_model.dart';
 
-class Character {
-  final String name;
-  final String imagePath;
-  final String description;
-  final String categories;
-
-  const Character({
-    required this.name,
-    required this.imagePath,
-    required this.description,
-    required this.categories,
-  });
-}
-
-const List<Character> dcCharacters = [
-  Character(
-    name: 'Superman',
-    imagePath:
-        'https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/CharThumb_215x215_SUPERMAN_57b16f43d3f3c3.10580054.jpg?itok=FySvkj3M',
-    description:
-        'Superman is a fictional superhero. The character was created by writer Jerry Siegel and artist Joe Shuster, and first appeared in Action Comics #1, a comic book published on April 18, 1938.',
-    categories: 'DC',
-  ),
-  Character(
-    name: 'Batman',
-    imagePath:
-        'https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/CharThumb_215x215_BATMAN_57b16f41836ae9.43122231.jpg?itok=XOCgYyjQ',
-    description:
-        'Batman is a fictional superhero. The character was created by artist Bob Kane and writer Bill Finger, and first appeared in Detective Comics #27, a comic book published on March 30, 1939.',
-    categories: 'DC',
-  ),
+final List<String> categories = [
+  'Super-heróis',
+  'Vilões',
 ];
 
-const List<Character> marvelCharacters = [
-  Character(
-    name: 'Iron Man',
-    imagePath:
-        'https://terrigen-cdn-dev.marvel.com/content/prod/1x/002irm_ons_crd_03.jpg',
-    description:
-        'Batman is a fictional superhero. The character was created by artist Bob Kane and writer Bill Finger, and first appeared in Detective Comics #27, a comic book published on March 30, 1939.',
-    categories: 'Marvel',
-  ),
-];
+final Map<String, List<CharacterModel>> characters = {
+  'Super-heróis': [
+    CharacterModel(
+      name: 'Superman',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2013/07/12/19/23/superhero-154540_960_720.png',
+      characterDetails:
+          'Superman é um personagem fictício, um super-herói que aparece nas histórias em quadrinhos americanas publicadas pela DC Comics.',
+    ),
+    CharacterModel(
+      name: 'Homem-Aranha',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2017/06/23/10/47/spiderman-2439241_960_720.png',
+      characterDetails:
+          'Homem-Aranha é um personagem fictício, um super-herói que aparece nas histórias em quadrinhos americanas publicadas pela Marvel Comics.',
+    ),
+  ],
+  'Vilões': [
+    CharacterModel(
+      name: 'Coringa',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/06/18/14/05/joker-1460224_960_720.png',
+      characterDetails:
+          'O Coringa é um personagem fictício, um supervilão que aparece nas histórias em quadrinhos americanas publicadas pela DC Comics.',
+    ),
+    CharacterModel(
+      name: 'Duende Verde',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2017/06/17/21/16/green-goblin-2418311_960_720.png',
+      characterDetails:
+          'Duende Verde é um personagem fictício, um supervilão que aparece nas histórias em quadrinhos americanas publicadas pela Marvel Comics.',
+    ),
+  ],
+};

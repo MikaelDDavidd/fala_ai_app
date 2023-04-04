@@ -1,40 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:fala_ai_app/utils/constants.dart';
+import 'package:fala_ai_app/models/character_model.dart';
 
 class SelectedCharacterCard extends StatelessWidget {
-  const SelectedCharacterCard({Key? key, required this.character})
-      : super(key: key);
-  final Character character;
+  final CharacterModel character;
+
+  const SelectedCharacterCard({super.key, required this.character});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
-          Image.network(
-            character.imagePath,
-            width: 100.0,
-            height: 100.0,
-          ),
-          const SizedBox(width: 16.0),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  character.name,
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 8.0),
-                Text(
-                  character.description,
-                  style: const TextStyle(fontSize: 16.0),
-                ),
-              ],
+          Image.network(character.imageUrl),
+          ListTile(
+            title: Text(
+              character.name,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            subtitle: Text(
+              character.characterDetails,
+              style: const TextStyle(fontSize: 14),
             ),
           ),
         ],
