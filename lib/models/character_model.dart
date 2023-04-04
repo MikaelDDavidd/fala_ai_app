@@ -1,11 +1,8 @@
 class Character {
-  String name;
-  String imageUrl;
-  String description;
+  final String name;
+  final String description;
+  final String imagePath;
 
-  Character({
-    required this.name,
-    required this.imageUrl,
-    required this.description,
-  });
+  Character(
+      {required this.name, required this.description, required this.imagePath});
 }
