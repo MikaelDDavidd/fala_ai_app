@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fala_ai_app/models/character_model.dart';
 import 'package:fala_ai_app/widgets/selected_character_card.dart';
-import 'package:fala_ai_app/utils/constants.dart';
+import 'package:fala_ai_app/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
