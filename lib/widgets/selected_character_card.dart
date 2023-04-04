@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fala_ai_app/models/character_model.dart';
+import 'package:fala_ai_app/utils/constants.dart';
 
 class SelectedCharacterCard extends StatelessWidget {
   const SelectedCharacterCard({Key? key, required this.character})
       : super(key: key);
-  final CharacterModel character;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class SelectedCharacterCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.network(
-            character.imageUrl,
+            character.imagePath,
             width: 100.0,
             height: 100.0,
           ),
