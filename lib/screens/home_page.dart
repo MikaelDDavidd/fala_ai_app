@@ -28,52 +28,62 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Fala Aí!",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+        body: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      const Text(
+        "Fala Aí!",
+        style: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      const SizedBox(height: 20),
+      DropdownButton<String>(
+        value: _selectedCategory,
+        hint: const Text("Selecione uma categoria"),
+        onChanged: (value) {
+          setState(() {
+            _selectedCategory = value;
+            _selectedCharacter = null;
+          });
+        },
+        items: categoriesAndCharacters.keys
+            .map((category) => DropdownMenuItem(
+                  value: category,
+                  child: Text(category),
+                ))
+            .toList(),
+      ),
+      const SizedBox(height: 10),
+      DropdownButton<String>(
+        value: _selectedCharacter,
+        hint: const Text("Selecione um personagem"),
+        onChanged: (value) {
+          setState(() {
+            _selectedCharacter = value;
+          });
+        },
+        items: _charactersList
+            .map((character) => DropdownMenuItem(
+                  value: character,
+                  child: Text(character),
+                ))
+            .toList(),
+      ),
+      const SizedBox(height: 20),
+      if (_selectedCharacterData != null)
+        Card(
+          child: Row(
+            children: [
+              SizedBox(
+                height: 80,
+                width: 80,
+                child: Image.asset(selectedCharacter.imageUrl),
               ),
-            ),
-            const SizedBox(height: 20),
-            DropdownButton<String>(
-              value: _selectedCategory,
-              hint: const Text("Selecione uma categoria"),
-              onChanged: (value) {
-                setState(() {
-                  _selectedCategory = value;
-                  _selectedCharacter = null;
-                });
-              },
-              items: categoriesAndCharacters.keys
-                  .map((category) => DropdownMenuItem(
-                        value: category,
-                        child: Text(category),
-                      ))
-                  .toList(),
-            ),
-            const SizedBox(height: 10),
-            DropdownButton<String>(
-              value: _selectedCharacter,
-              hint: const Text("Selecione um personagem"),
-              onChanged: (value) {
-                setState(() {
-                  _selectedCharacter = value;
-                });
-              },
-              items: _charactersList
-                  .map((character) => DropdownMenuItem(
-                        value: character,
-                        child: Text(character),
-                      ))
-                  .toList(),
-            ),
-            const SizedBox(height: 20),
-            if (_selectedCharacterData != null)
+              const SizedBox(
+                width: 16,
+              ),
               Column(
                 children: [
                   Image.network(
@@ -99,9 +109,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+    ])));
   }
 }
