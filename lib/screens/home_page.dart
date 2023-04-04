@@ -73,45 +73,7 @@ class _HomePageState extends State<HomePage> {
       ),
       const SizedBox(height: 20),
       if (_selectedCharacterData != null)
-        Card(
-          child: Row(
-            children: [
-              SizedBox(
-                height: 80,
-                width: 80,
-                child: Image.asset(selectedCharacter.imageUrl),
-              ),
-              const SizedBox(
-                width: 16,
-              ),
-              Column(
-                children: [
-                  Image.network(
-                    _selectedCharacterData!.imageUrl,
-                    width: 150,
-                    height: 150,
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    _selectedCharacterData!.name,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    _selectedCharacterData!.description,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        SelectedCharacterCard(character: selectedCharacter!),
     ])));
   }
 }
