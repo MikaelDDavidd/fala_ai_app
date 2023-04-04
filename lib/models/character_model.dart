@@ -1,8 +1,11 @@
-class CharacterModel {
-  final String name;
-  final String image;
-  final String description;
+class Character {
+  String name;
+  String imageUrl;
+  String description;
 
-  CharacterModel(
-      {required this.name, required this.image, required this.description});
+  Character({
+    required this.name,
+    required this.imageUrl,
+    required this.description,
+  });
 }
