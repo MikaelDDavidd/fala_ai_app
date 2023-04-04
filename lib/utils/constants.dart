@@ -1,51 +1,55 @@
 import 'package:fala_ai_app/models/character_model.dart';
 
-final List<Character> characters = [
+List<Character> dcCharacters = [
   Character(
-    name: "Batman",
+    name: 'Batman',
+    categories: 'DC',
     description:
-        "Batman é um personagem fictício, um super-herói da banda desenhada americana publicada pela DC Comics.",
+        'Batman é um personagem fictício, um super-herói da banda desenhada americana publicada pela DC Comics. Foi criado pelo escritor Bill Finger e pelo artista Bob Kane, e apareceu pela primeira vez na revista Detective Comics #27, em 1939.',
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Batman-BenAffleck.jpg/220px-Batman-BenAffleck.jpg",
-    categories: "DC",
+        'https://cdn.pixabay.com/photo/2017/03/15/13/14/batman-2143254_960_720.png',
   ),
   Character(
-    name: "Superman",
+    name: 'Superman',
+    categories: 'DC',
     description:
-        "Superman é um personagem fictício de histórias em quadrinhos americanas publicado pela DC Comics, uma empresa subsidiária do grupo Time Warner.",
+        'Superman é um personagem fictício de história em quadrinhos americana publicado pela DC Comics. O personagem foi criado pelo escritor Jerry Siegel e pelo artista Joe Shuster, sendo este um dos primeiros super-heróis a serem concebidos.',
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/SupermanRoss.png/220px-SupermanRoss.png",
-    categories: "DC",
+        'https://cdn.pixabay.com/photo/2019/07/04/14/25/superman-4315905_960_720.png',
   ),
   Character(
-    name: "Wonder Woman",
+    name: 'Wonder Woman',
+    categories: 'DC',
     description:
-        "Wonder Woman é uma personagem fictícia de histórias em quadrinhos publicadas pela editora estadunidense DC Comics.",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/9/93/Wonder_Woman.jpg",
-    categories: "DC",
+        'Mulher Maravilha é uma personagem fictícia de histórias em quadrinhos publicadas pela editora estadunidense DC Comics, originalmente é uma princesa guerreira de Temiscira, ilha das Amazonas, e é conhecida no seu mundo como Diana, a Mulher-Maravilha.',
+    imageUrl:
+        'https://cdn.pixabay.com/photo/2019/07/04/14/26/wonder-woman-4315906_960_720.png',
+  ),
+];
+
+List<Character> marvelCharacters = [
+  Character(
+    name: 'Spider-Man',
+    categories: 'Marvel',
+    description:
+        'Homem-Aranha é um dos mais importantes e populares super-heróis das histórias em quadrinhos americanas. Criado por Stan Lee e Steve Ditko, sua primeira aparição foi em Amazing Fantasy #15, no ano de 1962.',
+    imageUrl:
+        'https://cdn.pixabay.com/photo/2017/07/18/23/23/spiderman-2511226_960_720.png',
   ),
   Character(
-    name: "Spider-Man",
+    name: 'Iron Man',
+    categories: 'Marvel',
     description:
-        "Spider-Man é um personagem fictício, um super-herói que aparece nas revistas em quadrinhos americanas publicadas pela Marvel Comics.",
+        'Homem de Ferro é um personagem fictício dos quadrinhos publicados pela Marvel Comics. Sua identidade verdadeira é a do empresário e bilionário Tony Stark, que usa armaduras de alta tecnologia no combate ao crime.',
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Spider-Man_noir.png/220px-Spider-Man_noir.png",
-    categories: "Marvel",
+        'https://cdn.pixabay.com/photo/2017/03/08/21/20/iron-man-2120730_960_720.png',
   ),
   Character(
-    name: "Iron Man",
+    name: 'Black Widow',
+    categories: 'Marvel',
     description:
-        "Iron Man é um personagem fictício, um super-herói que aparece nas revistas em quadrinhos americanas publicadas pela Marvel Comics.",
+        'Viúva Negra é uma personagem fictícia das histórias em quadrinhos publicadas pela editora Marvel Comics. Criada por Stan Lee, Don Rico e Don Heck, sua primeira aparição foi em Tales of Suspense #52, em 1964.',
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Iron_Man_bleeding_edge.jpg/250px-Iron_Man_bleeding_edge.jpg",
-    categories: "Marvel",
-  ),
-  Character(
-    name: "Black Widow",
-    description:
-        "Black Widow é um personagem fictício de histórias em quadrinhos publicadas pela editora americana Marvel Comics.",
-    imageUrl:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Black_Widow_%28Natasha_Romanova%29.png/250px-Black_Widow_%28Natasha_Romanova%29.png",
-    categories: "Marvel",
+        'https://cdn.pixabay.com/photo/2017/07/18/23/23/black-widow-2511229_960_720.png',
   ),
 ];
