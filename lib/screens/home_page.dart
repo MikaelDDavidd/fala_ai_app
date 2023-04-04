@@ -11,8 +11,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _selectedCategory = dcCharacters[0].categories;
-  String _selectedCharacter = dcCharacters[0].name;
+  late List<Character> _characters;
+  late List<String> _categories;
+  late String _selectedCategory;
+  late String _selectedCharacter;
 
   @override
   Widget build(BuildContext context) {

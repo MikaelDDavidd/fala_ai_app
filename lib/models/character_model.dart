@@ -1,10 +1,10 @@
-class Character {
+class CharacterModel {
   final String name;
   final String categories;
   final String description;
   final String imageUrl;
 
-  Character({
+  CharacterModel({
     required this.name,
     required this.categories,
     required this.description,

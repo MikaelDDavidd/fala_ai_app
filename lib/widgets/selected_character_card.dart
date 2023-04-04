@@ -4,7 +4,7 @@ import 'package:fala_ai_app/models/character_model.dart';
 class SelectedCharacterCard extends StatelessWidget {
   const SelectedCharacterCard({Key? key, required this.character})
       : super(key: key);
-  final Character character;
+  final CharacterModel character;
 
   @override
   Widget build(BuildContext context) {
