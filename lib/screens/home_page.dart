@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fala_ai_app/models/character_model.dart';
-import 'package:fala_ai_app/utils/constants.dart';
 import 'package:fala_ai_app/widgets/selected_character_card.dart';
+import 'package:fala_ai_app/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,63 +11,67 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _selectedCategory = categories.keys.first;
-  String _selectedCharacter = characters[categories.keys.first].first.name;
-
-  void _onCategoryChanged(String category) {
-    setState(() {
-      _selectedCategory = category;
-      _selectedCharacter = characters[category].first.name;
-    });
-  }
-
-  void _onCharacterChanged(String character) {
-    setState(() {
-      _selectedCharacter = character;
-    });
-  }
+  String _selectedCategory = dcCharacters[0].categories;
+  String _selectedCharacter = dcCharacters[0].name;
 
   @override
   Widget build(BuildContext context) {
-    final List<Character> charactersList = characters[_selectedCategory];
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Fala Aí App'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            DropdownButton<String>(
-              value: _selectedCategory,
-              items: categories.keys
-                  .map((category) => DropdownMenuItem<String>(
-                        value: category,
-                        child: Text(category),
-                      ))
-                  .toList(),
-              onChanged: _onCategoryChanged,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text(
+            'Fala Aí App',
+            style: TextStyle(
+              fontSize: 32.0,
+              fontWeight: FontWeight.bold,
             ),
-            SizedBox(height: 16.0),
-            DropdownButton<String>(
-              value: _selectedCharacter,
-              items: charactersList
-                  .map((character) => DropdownMenuItem<String>(
-                        value: character.name,
-                        child: Text(character.name),
-                      ))
-                  .toList(),
-              onChanged: _onCharacterChanged,
-            ),
-            SizedBox(height: 16.0),
-            SelectedCharacterCard(
-              character: charactersList.firstWhere(
-                  (character) => character.name == _selectedCharacter),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 16.0),
+          DropdownButton(
+            value: _selectedCategory,
+            items: categories.map((category) {
+              return DropdownMenuItem(
+                value: category,
+                child: Text(category),
+              );
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectedCategory = value.toString();
+                _selectedCharacter = characters
+                    .where((character) =>
+                        character.categories == _selectedCategory)
+                    .first
+                    .name;
+              });
+            },
+          ),
+          const SizedBox(height: 16.0),
+          DropdownButton(
+            value: _selectedCharacter,
+            items: characters
+                .where((character) => character.categories == _selectedCategory)
+                .map((character) {
+              return DropdownMenuItem(
+                value: character.name,
+                child: Text(character.name),
+              );
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectedCharacter = value.toString();
+              });
+            },
+          ),
+          const SizedBox(height: 16.0),
+          SelectedCharacterCard(
+            character: characters
+                .where((character) => character.name == _selectedCharacter)
+                .first,
+          ),
+        ],
       ),
     );
   }

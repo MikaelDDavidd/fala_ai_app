@@ -4,40 +4,35 @@ import 'package:fala_ai_app/models/character_model.dart';
 class SelectedCharacterCard extends StatelessWidget {
   final Character character;
 
-  const SelectedCharacterCard({Key? key, required this.character})
-      : super(key: key);
+  const SelectedCharacterCard({required this.character});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(character.imageUrl),
-              ),
-            ),
+          Image.network(
+            character.imageUrl,
+            width: 100.0,
+            height: 100.0,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const SizedBox(width: 16.0),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   character.name,
                   style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8.0),
                 Text(
                   character.description,
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16.0),
                 ),
               ],
             ),
