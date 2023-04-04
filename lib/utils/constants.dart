@@ -1,38 +1,57 @@
 import 'package:fala_ai_app/models/character_model.dart';
 
-Map<String, List<Character>> charactersByCategory = {
-  "Comics": [
+class Constants {
+  static const String appTitle = 'Fala Aí App';
+
+  static const List<String> categories = ['DC Comics', 'Marvel'];
+
+  static const List<Character> characters = [
     Character(
-        name: "Spider-Man",
-        description:
-            "Peter Parker was bitten by a radioactive spider as a teenager, granting him spider-like powers. After the death of his Uncle Ben, Peter learned that with great power comes great responsibility, and vowed to use his powers to help people. Peter Parker became the Amazing Spider-Man!",
-        imagePath: "assets/images/spider_man.jpg"),
+      name: 'Batman',
+      description:
+          'Bruce Wayne é um empresário, playboy, filantropo e bilionário proprietário da Wayne Enterprises, que costuma combater o crime em Gotham City como o vigilante mascarado Batman.',
+      imagePath:
+          'https://upload.wikimedia.org/wikipedia/pt/8/8a/Batman_DC_Comics.png',
+      category: 'DC Comics',
+    ),
     Character(
-        name: "Iron Man",
-        description:
-            "Tony Stark is a genius inventor who uses his wealth and technical expertise to fight crime as the armored superhero Iron Man.",
-        imagePath: "assets/images/iron_man.jpg"),
+      name: 'Superman',
+      description:
+          'Clark Kent é um personagem fictício, um super-herói que aparece nos quadrinhos americanos publicados pela DC Comics, sendo um dos personagens mais importantes e famosos da editora.',
+      imagePath:
+          'https://upload.wikimedia.org/wikipedia/pt/e/eb/Superman_DC_Comics.png',
+      category: 'DC Comics',
+    ),
     Character(
-        name: "Captain America",
-        description:
-            "Steve Rogers volunteers to participate in an experimental program that turns him into the Super Soldier known as Captain America.",
-        imagePath: "assets/images/captain_america.jpg"),
-  ],
-  "Movies": [
+      name: 'Mulher Maravilha',
+      description:
+          'Diana Prince, conhecida também como Mulher Maravilha, é uma personagem fictícia de histórias em quadrinhos publicadas pela editora estadunidense DC Comics.',
+      imagePath:
+          'https://upload.wikimedia.org/wikipedia/pt/1/15/Wonder_Woman_DC_Comics.png',
+      category: 'DC Comics',
+    ),
     Character(
-        name: "Black Panther",
-        description:
-            "T'Challa is the Black Panther, king of Wakanda, one of the most technologically advanced nations on Earth. He is among the top intellects and martial artists of the world, a veteran Avenger, and a member of the Illuminati.",
-        imagePath: "assets/images/black_panther.jpg"),
+      name: 'Homem de Ferro',
+      description:
+          'Anthony Edward "Tony" Stark é um personagem fictício dos quadrinhos publicados pela Marvel Comics. Sua identidade secreta é a de um empresário e bilionário que também fabrica armas e equipamentos militares.',
+      imagePath:
+          'https://upload.wikimedia.org/wikipedia/pt/e/e0/Iron_Man_bleeding_edge.jpg',
+      category: 'Marvel',
+    ),
     Character(
-        name: "Thor",
-        description:
-            "Thor Odinson wields the power of the ancient Asgardians to fight evil throughout the Nine Realms and beyond!",
-        imagePath: "assets/images/thor.jpg"),
+      name: 'Capitão América',
+      description:
+          'Steve Rogers é um personagem fictício de histórias em quadrinhos da Marvel Comics. Foi criado por Joe Simon e Jack Kirby, aparecendo pela primeira vez em Captain America Comics #1 em 1941.',
+      imagePath:
+          'https://upload.wikimedia.org/wikipedia/pt/3/37/Capit%C3%A3o_Am%C3%A9rica_Marvel_Comics.png',
+      category: 'Marvel',
+    ),
     Character(
-        name: "Hulk",
-        description:
-            "Dr. Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the uncontrollable green monster powered by his rage.",
-        imagePath: "assets/images/hulk.jpg"),
-  ],
-};
+      name: 'Homem-Aranha',
+      description:
+          'Homem-Aranha é um personagem fictício, um super-herói que aparece nas revistas em quadrinhos (banda desenhada, em Portugal) americanas publicadas pela Marvel Comics, existindo no seu universo partilhado.',
+      imagePath: 'https://upload.wikimedia.org/wikipedia/pt/2/28/Spiderman.jpg',
+      category: 'Marvel',
+    ),
+  ];
+}

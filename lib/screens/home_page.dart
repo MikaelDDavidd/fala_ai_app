@@ -11,94 +11,61 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _selectedCategory;
-  String _selectedCharacter;
+  String _selectedCategory = categories.keys.first;
+  String _selectedCharacter = characters[categories.keys.first].first.name;
 
-  List<String> _getCategories() {
-    return categories.keys.toList();
+  void _onCategoryChanged(String category) {
+    setState(() {
+      _selectedCategory = category;
+      _selectedCharacter = characters[category].first.name;
+    });
   }
 
-  List<String> _getCharacters() {
-    return categories[_selectedCategory];
-  }
-
-  Widget _buildDropdownCategories() {
-    return DropdownButton(
-      value: _selectedCategory,
-      items: _getCategories().map((category) {
-        return DropdownMenuItem(
-          value: category,
-          child: Text(category),
-        );
-      }).toList(),
-      onChanged: (value) {
-        setState(() {
-          _selectedCategory = value;
-          _selectedCharacter = null;
-        });
-      },
-      hint: const Text('Selecione uma categoria'),
-    );
-  }
-
-  Widget _buildDropdownCharacters() {
-    return DropdownButton(
-      value: _selectedCharacter,
-      items: _getCharacters()?.map((character) {
-            return DropdownMenuItem(
-              value: character,
-              child: Text(character),
-            );
-          })?.toList() ??
-          [],
-      onChanged: (value) {
-        setState(() {
-          _selectedCharacter = value;
-        });
-      },
-      hint: const Text('Selecione um personagem'),
-    );
-  }
-
-  Widget _buildSelectedCharacterCard() {
-    if (_selectedCharacter != null) {
-      Character character = Character(
-        name: _selectedCharacter,
-        description: characters[_selectedCharacter],
-        imagePath: characterImages[_selectedCharacter],
-      );
-      return SelectedCharacterCard(character: character);
-    } else {
-      return const SizedBox.shrink();
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedCategory = _getCategories().first;
+  void _onCharacterChanged(String character) {
+    setState(() {
+      _selectedCharacter = character;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<Character> charactersList = characters[_selectedCategory];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fala aí!'),
+        title: Text('Fala Aí App'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'Escolha uma categoria e um personagem',
-              style: TextStyle(fontSize: 18),
+            DropdownButton<String>(
+              value: _selectedCategory,
+              items: categories.keys
+                  .map((category) => DropdownMenuItem<String>(
+                        value: category,
+                        child: Text(category),
+                      ))
+                  .toList(),
+              onChanged: _onCategoryChanged,
             ),
-            const SizedBox(height: 20),
-            _buildDropdownCategories(),
-            const SizedBox(height: 20),
-            _buildDropdownCharacters(),
-            const SizedBox(height: 20),
-            _buildSelectedCharacterCard(),
+            SizedBox(height: 16.0),
+            DropdownButton<String>(
+              value: _selectedCharacter,
+              items: charactersList
+                  .map((character) => DropdownMenuItem<String>(
+                        value: character.name,
+                        child: Text(character.name),
+                      ))
+                  .toList(),
+              onChanged: _onCharacterChanged,
+            ),
+            SizedBox(height: 16.0),
+            SelectedCharacterCard(
+              character: charactersList.firstWhere(
+                  (character) => character.name == _selectedCharacter),
+            ),
           ],
         ),
       ),
