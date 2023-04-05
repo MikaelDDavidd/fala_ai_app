@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 class Constants {
   static const String appName = 'Fala Aí';
 
@@ -13,3 +14,16 @@ class Constants {
     'Categoria 3': ['Personagem 7', 'Personagem 8', 'Personagem 9'],
   };
 }
+=======
+final List<String> categories = [
+  'Anime',
+  'Filmes',
+  'Cantor',
+];
+
+final Map<String, List<String>> characters = {
+  'Anime': ['Ichigo (Bleach)', 'Naruto (Naruto)'],
+  'Filmes': ['Harry (Harry Potter)', 'Rony (Harry Potter)'],
+  'Cantor': ['Justin Bieber', 'Ariana Grande'],
+};
+>>>>>>> Stashed changes
