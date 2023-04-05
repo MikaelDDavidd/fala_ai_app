@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fala_ai_app/utils/constants.dart';
+import 'package:fala_ai_app/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
