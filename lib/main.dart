@@ -1,14 +1,8 @@
-<<<<<<< Updated upstream
-import 'package:fala_ai_app/my_app.dart';
-=======
 import 'package:fala_ai_app/screens/home_page.dart';
 import 'package:fala_ai_app/screens/splash_screen.dart';
-import 'package:fala_ai_app/theme/app_theme.dart';
 import 'package:fala_ai_app/theme/theme_mode_handler.dart';
->>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(
@@ -18,8 +12,6 @@ void main() {
     ),
   );
 }
-<<<<<<< Updated upstream
-=======
 
 class MyApp extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -53,4 +45,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
->>>>>>> Stashed changes
