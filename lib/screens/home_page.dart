@@ -29,6 +29,29 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      if (Theme.of(context).brightness == Brightness.dark) {
+                        // altera para o tema light
+                        ThemeModeHandler.of(context)
+                            .changeMode(ThemeMode.light);
+                      } else {
+                        // altera para o tema dark
+                        ThemeModeHandler.of(context).changeMode(ThemeMode.dark);
+                      }
+                    },
+                    icon: Icon(
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Icons.wb_sunny
+                          : Icons.nights_stay,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
+              ),
               const Text(
                 "Fala Aí App",
                 style: TextStyle(

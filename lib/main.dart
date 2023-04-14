@@ -1,5 +1,6 @@
 import 'package:fala_ai_app/screens/home_page.dart';
 import 'package:fala_ai_app/screens/splash_screen.dart';
+import 'package:fala_ai_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fala Aí',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false, // remove a barra de depuração
       initialRoute: '/',
       routes: {
