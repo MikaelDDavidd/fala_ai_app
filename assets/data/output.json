@@ -1,0 +1,50 @@
+{
+   "categories": [
+     {
+       "name": "Anime",
+       "characters": [
+         {
+           "name": "Ichigo (Bleach)",
+           "image_url": "https://example.com/ichigo.png",
+           "description": "Ichigo Kurosaki is the main character of the Bleach anime series."
+         },
+         {
+           "name": "Naruto (Naruto)",
+           "image_url": "https://example.com/naruto.png",
+           "description": "Naruto Uzumaki is the main character of the Naruto anime series."
+         }
+       ]
+     },
+     {
+       "name": "Filmes",
+       "characters": [
+         {
+           "name": "Harry (Harry Potter)",
+           "image_url": "https://example.com/harry.png",
+           "description": "Harry Potter is the main character of the Harry Potter film series."
+         },
+         {
+           "name": "Rony (Harry Potter)",
+           "image_url": "https://example.com/rony.png",
+           "description": "Ron Weasley is one of the main characters of the Harry Potter film series."
+         }
+       ]
+     },
+     {
+       "name": "Cantor",
+       "characters": [
+         {
+           "name": "Justin Bieber",
+           "image_url": "https://example.com/justin.png",
+           "description": "Justin Bieber is a Canadian singer and songwriter."
+         },
+         {
+           "name": "Ariana Grande",
+           "image_url": "https://example.com/ariana.png",
+           "description": "Ariana Grande is an American singer, songwriter, and actress."
+         }
+       ]
+     }
+   ]
+ }
+ 
