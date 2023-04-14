@@ -1,10 +1,16 @@
 import 'package:fala_ai_app/screens/home_page.dart';
 import 'package:fala_ai_app/screens/splash_screen.dart';
-import 'package:fala_ai_app/theme/app_theme.dart';
+import 'package:fala_ai_app/theme/theme_mode_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider<ThemeModeHandler>(
+      create: (_) => ThemeModeHandler(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,14 +19,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fala Aí',
-      theme: AppTheme.lightTheme,
-      debugShowCheckedModeBanner: false, // remove a barra de depuração
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/home': (context) => const HomePage(),
+    return ChangeNotifierProvider(
+      create: (context) => ThemeModeHandler(),
+      builder: (context, _) {
+        final themeModeHandler = Provider.of<ThemeModeHandler>(context);
+        return MaterialApp(
+          title: 'Fala Aí',
+          themeMode: themeModeHandler.themeMode,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            // ignore: deprecated_member_use
+            accentColor: Colors.blueAccent,
+          ),
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const SplashScreen(),
+            '/home': (context) => const HomePage(),
+          },
+        );
       },
     );
   }

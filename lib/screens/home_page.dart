@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fala_ai_app/constants.dart';
+import 'package:provider/provider.dart';
+
+import '../theme/theme_mode_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -34,20 +37,18 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      if (Theme.of(context).brightness == Brightness.dark) {
-                        // altera para o tema light
-                        ThemeModeHandler.of(context)
-                            .changeMode(ThemeMode.light);
-                      } else {
-                        // altera para o tema dark
-                        ThemeModeHandler.of(context).changeMode(ThemeMode.dark);
-                      }
+                      final handler =
+                          Provider.of<ThemeModeHandler>(context, listen: false);
+                      final newThemeMode = handler.themeMode == ThemeMode.light
+                          ? ThemeMode.dark
+                          : ThemeMode.light;
+                      handler.setThemeMode(newThemeMode);
                     },
                     icon: Icon(
-                      Theme.of(context).brightness == Brightness.dark
-                          ? Icons.wb_sunny
-                          : Icons.nights_stay,
-                      color: Colors.grey[600],
+                      Provider.of<ThemeModeHandler>(context).themeMode ==
+                              ThemeMode.light
+                          ? Icons.dark_mode
+                          : Icons.light_mode,
                     ),
                   ),
                 ],
